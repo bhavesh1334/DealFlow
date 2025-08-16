@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "../contexts/AuthContext";
 import { Navigation } from "./Navigation";
-import { recentActivity, sellerStats, buyerStats } from "../data/dashboard";
+import { sellerStats, buyerStats } from "../data/dashboard";
 
 interface DashboardProps {
   onNavigate: (route: string) => void;
@@ -19,6 +19,35 @@ interface DashboardProps {
 export function Dashboard({ onNavigate }: DashboardProps) {
   const { user } = useAuth();
   const isSeller = user?.role === "seller";
+  const recentActivity = [
+    {
+      type: "match",
+      title: isSeller
+        ? "New buyer interested in your business"
+        : "New business matches your criteria",
+      subtitle: isSeller
+        ? "TechCorp Ventures viewed your profile"
+        : "SaaS company in your target range",
+      time: "2 hours ago",
+      color: "text-green-600 bg-green-100",
+    },
+    {
+      type: "message",
+      title: "New message received",
+      subtitle: isSeller
+        ? "Buyer wants to schedule a call"
+        : "Seller responded to your inquiry",
+      time: "5 hours ago",
+      color: "text-blue-600 bg-blue-100",
+    },
+    {
+      type: "document",
+      title: "Document analysis complete",
+      subtitle: "AI review of financial statements ready",
+      time: "1 day ago",
+      color: "text-purple-600 bg-purple-100",
+    },
+  ];
 
   const stats = isSeller ? sellerStats : buyerStats;
 

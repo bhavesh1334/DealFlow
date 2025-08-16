@@ -1,3 +1,5 @@
+import { Clock, DollarSign, Heart, MessageSquare, Users } from "lucide-react";
+
 const sellerStats = [
   {
     icon: Users,
@@ -59,34 +61,5 @@ const buyerStats = [
     color: "text-blue-600 bg-blue-100",
   },
 ];
-const recentActivity = [
-  {
-    type: "match",
-    title: isSeller
-      ? "New buyer interested in your business"
-      : "New business matches your criteria",
-    subtitle: isSeller
-      ? "TechCorp Ventures viewed your profile"
-      : "SaaS company in your target range",
-    time: "2 hours ago",
-    color: "text-green-600 bg-green-100",
-  },
-  {
-    type: "message",
-    title: "New message received",
-    subtitle: isSeller
-      ? "Buyer wants to schedule a call"
-      : "Seller responded to your inquiry",
-    time: "5 hours ago",
-    color: "text-blue-600 bg-blue-100",
-  },
-  {
-    type: "document",
-    title: "Document analysis complete",
-    subtitle: "AI review of financial statements ready",
-    time: "1 day ago",
-    color: "text-purple-600 bg-purple-100",
-  },
-];
 
-export { recentActivity, sellerStats, buyerStats };
+export { sellerStats, buyerStats };

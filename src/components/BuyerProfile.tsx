@@ -7,6 +7,9 @@ import {
   Building,
   Target,
   Clock,
+  Workflow,
+  Bookmark,
+  UserPlus,
 } from "lucide-react";
 import { Navigation } from "./Navigation";
 
@@ -189,7 +192,7 @@ export function BuyerProfile({ buyer, onNavigate }: BuyerProfileProps) {
               <h3 className="text-xl font-bold text-gray-900 mb-4">
                 Take Action
               </h3>
-              <div className="space-y-3">
+              {/* <div className="space-y-3">
                 <button className="w-full bg-teal-600 text-white py-3 rounded-lg font-semibold hover:bg-teal-700 transition-colors">
                   Connect with Buyer
                 </button>
@@ -202,7 +205,30 @@ export function BuyerProfile({ buyer, onNavigate }: BuyerProfileProps) {
                 >
                   Start Deal Process
                 </button>
+              </div> */}
+              <div className="space-y-4">
+                {/* Connect with Buyer */}
+                <button className="w-full flex items-center justify-center gap-2 bg-teal-600 text-white py-3 rounded-xl font-semibold shadow-md hover:bg-teal-700 hover:shadow-lg transition-all">
+                  <UserPlus className="w-5 h-5" />
+                  Connect with Buyer
+                </button>
+
+                {/* Save for Later */}
+                <button className="w-full flex items-center justify-center gap-2 border border-gray-300 text-gray-700 py-3 rounded-xl font-semibold shadow-sm hover:bg-gray-50 hover:shadow-md transition-all">
+                  <Bookmark className="w-5 h-5 text-gray-500" />
+                  Save for Later
+                </button>
+
+                {/* Start Deal Process */}
+                <button
+                  onClick={() => onNavigate("acquisition")}
+                  className="w-full flex items-center justify-center gap-2 bg-orange-600 text-white py-3 rounded-xl font-semibold shadow-md hover:bg-orange-700 hover:shadow-lg transition-all"
+                >
+                  <Workflow className="w-5 h-5" />
+                  Start Deal Process
+                </button>
               </div>
+              ¯
             </div>
 
             {/* Compatibility Breakdown */}
