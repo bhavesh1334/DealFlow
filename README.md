@@ -1,83 +1,72 @@
-# React + Vite + TypeScript + Tailwind CSS Project
+# DealFlow
 
-A modern React application built with Vite, TypeScript, and Tailwind CSS.
+DealFlow is a modern digital platform designed to **connect business buyers and sellers** with an intuitive, approachable design.  
+Unlike traditional acquisition platforms, DealFlow flips the model by enabling **seller-initiated matching**, streamlining onboarding, and leveraging **AI-powered workflows** to maximize deal success.
 
-## Features
+---
 
-- ⚡️ **Vite** - Fast build tool and dev server
-- ⚛️ **React 19** - Latest React with modern features
-- 🔷 **TypeScript** - Type-safe development
-- 🎨 **Tailwind CSS** - Utility-first CSS framework
-- 📱 **Responsive Design** - Mobile-first approach
-- 🚀 **Hot Module Replacement** - Instant updates during development
+## 🚀 Core Features
 
-## Getting Started
+- **Role-based Onboarding**  
+  Tailored questionnaires for buyers and sellers to personalize the experience.
 
-### Prerequisites
+- **Seller-Initiated Matching**  
+  Tinder-style interface where sellers discover and connect with buyers.
 
-- Node.js (version 18 or higher)
-- npm or yarn
+- **Comprehensive Buyer Profiles**  
+  Access essential decision-making information at a glance.
 
-### Installation
+- **AI-Powered Acquisition Workflow**  
+  Document analysis, deal tracking, and smart recommendations powered by AI.
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
+- **Dedicated Dashboards**  
+  Intuitive navigation with separate buyer and seller views.
 
-2. Start the development server:
-   ```bash
-   npm run dev
-   ```
+- **Built-in Communication Tools**  
+  Real-time messaging, updates, and progress tracking.
 
-3. Open your browser and navigate to `http://localhost:5173`
+---
 
-### Available Scripts
+## 🎨 Design Elements
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
+- **Color Palette**
 
-## Project Structure
+  - Teal (`#14B8A6`) – primary, approachable, and modern
+  - Coral (`#F97316`) – energetic highlights
+  - Grays – professional and clean
 
-```
-src/
-├── App.tsx          # Main application component
-├── main.tsx         # Application entry point
-├── index.css        # Global styles with Tailwind directives
-└── assets/          # Static assets
-```
+- **Modern UI/UX**
+  - Clean, responsive, and mobile-first
+  - Subtle animations and micro-interactions
+  - Card-based layouts for quick scanning
+  - Clear CTAs and progress indicators to guide users
 
-## Tailwind CSS
+---
 
-This project uses Tailwind CSS v4 with PostCSS. The configuration is in:
-- `tailwind.config.js` - Tailwind configuration
-- `postcss.config.js` - PostCSS configuration
+## 📱 Responsive Design
 
-## Development
+- **Mobile-First Approach** – optimized for all screen sizes
+- **Accessible Navigation** – intuitive menus and role-based dashboards
+- **Smooth Interactions** – fast, user-friendly flows across devices
 
-The development server will automatically reload when you make changes to your code. The project includes:
+---
 
-- TypeScript compilation
-- ESLint for code quality
-- Hot Module Replacement (HMR)
-- Tailwind CSS with JIT compilation
+## 🛠️ Tech Stack
 
-## Building for Production
+- **Frontend:** React, TypeScript, TailwindCSS
+- **State Management:** Zustand / Context API (as per requirements)
+- **APIs:** GraphQL integration
+- **Other Tools:** React Router, Socket.IO (for real-time communication)
 
-To create a production build:
+---
+
+## ⚡ Getting Started
+
+Clone the repo and install dependencies:
 
 ```bash
-npm run build
+git clone https://github.com/bhavesh1334/DealFlow.git
+cd dealflow
+npm install
+npm run dev
 ```
-
-The built files will be in the `dist/` directory.
-
-## Technologies Used
-
-- [React](https://react.dev/) - UI library
-- [Vite](https://vitejs.dev/) - Build tool
-- [TypeScript](https://www.typescriptlang.org/) - Type safety
-- [Tailwind CSS](https://tailwindcss.com/) - CSS framework
-- [PostCSS](https://postcss.org/) - CSS processing
