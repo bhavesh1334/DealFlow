@@ -1,6 +1,14 @@
-import React from 'react';
-import { ArrowLeft, MapPin, DollarSign, Users, Calendar, Award, Building, Target, Clock } from 'lucide-react';
-import { Navigation } from './Navigation';
+import {
+  ArrowLeft,
+  MapPin,
+  DollarSign,
+  Users,
+  Award,
+  Building,
+  Target,
+  Clock,
+} from "lucide-react";
+import { Navigation } from "./Navigation";
 
 interface BuyerProfileProps {
   buyer: any;
@@ -13,18 +21,16 @@ export function BuyerProfile({ buyer, onNavigate }: BuyerProfileProps) {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation onNavigate={onNavigate} />
-      
+
       <div className="max-w-4xl mx-auto px-4 py-6">
-        {/* Back Button */}
         <button
-          onClick={() => onNavigate('matching')}
+          onClick={() => onNavigate("matching")}
           className="flex items-center text-gray-600 hover:text-gray-900 mb-6 transition-colors"
         >
           <ArrowLeft className="h-5 w-5 mr-2" />
           Back to Matching
         </button>
 
-        {/* Header */}
         <div className="bg-gradient-to-r from-teal-600 to-teal-700 rounded-2xl p-8 text-white mb-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-6">
@@ -50,7 +56,6 @@ export function BuyerProfile({ buyer, onNavigate }: BuyerProfileProps) {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Main Profile Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* About */}
             <div className="bg-white rounded-xl p-6 shadow-sm">
@@ -58,19 +63,24 @@ export function BuyerProfile({ buyer, onNavigate }: BuyerProfileProps) {
               <p className="text-gray-700 leading-relaxed mb-6">
                 {buyer.description}
               </p>
-              
-              {/* Investment Focus */}
+
               <div className="border-t pt-6">
-                <h3 className="font-semibold text-gray-900 mb-3">Investment Focus</h3>
+                <h3 className="font-semibold text-gray-900 mb-3">
+                  Investment Focus
+                </h3>
                 <p className="text-gray-700 mb-4">{buyer.investmentFocus}</p>
-                
+
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2">Preferred Business Size</h4>
+                    <h4 className="font-medium text-gray-900 mb-2">
+                      Preferred Business Size
+                    </h4>
                     <p className="text-gray-700">{buyer.preferredSize}</p>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2">Investment Timeline</h4>
+                    <h4 className="font-medium text-gray-900 mb-2">
+                      Investment Timeline
+                    </h4>
                     <p className="text-gray-700">{buyer.timeline}</p>
                   </div>
                 </div>
@@ -79,14 +89,16 @@ export function BuyerProfile({ buyer, onNavigate }: BuyerProfileProps) {
 
             {/* Target Industries */}
             <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Target Industries</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Target Industries
+              </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {buyer.targetIndustries.map((industry, index) => (
                   <div
                     key={index}
                     className="bg-teal-50 text-teal-700 px-4 py-3 rounded-lg text-center font-medium"
                   >
-                    {industry}
+                    ƒ{industry}
                   </div>
                 ))}
               </div>
@@ -94,22 +106,31 @@ export function BuyerProfile({ buyer, onNavigate }: BuyerProfileProps) {
 
             {/* Experience & Recent Deals */}
             <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Experience & Track Record</h2>
-              
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Experience & Track Record
+              </h2>
+
               <div className="mb-6">
                 <div className="flex items-center space-x-2 mb-2">
                   <Award className="h-5 w-5 text-teal-600" />
-                  <h3 className="font-semibold text-gray-900">Acquisition Experience</h3>
+                  <h3 className="font-semibold text-gray-900">
+                    Acquisition Experience
+                  </h3>
                 </div>
                 <p className="text-gray-700">{buyer.experience}</p>
               </div>
 
               {buyer.recentDeals.length > 0 && (
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">Recent Acquisitions</h3>
+                  <h3 className="font-semibold text-gray-900 mb-3">
+                    Recent Acquisitions
+                  </h3>
                   <div className="space-y-3">
                     {buyer.recentDeals.map((deal, index) => (
-                      <div key={index} className="flex items-center p-3 bg-gray-50 rounded-lg">
+                      <div
+                        key={index}
+                        className="flex items-center p-3 bg-gray-50 rounded-lg"
+                      >
                         <Building className="h-5 w-5 text-gray-400 mr-3" />
                         <span className="text-gray-700">{deal}</span>
                       </div>
@@ -122,9 +143,10 @@ export function BuyerProfile({ buyer, onNavigate }: BuyerProfileProps) {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            {/* Key Stats */}
             <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Key Information</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                Key Information
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <DollarSign className="h-5 w-5 text-teal-600" />
@@ -133,7 +155,7 @@ export function BuyerProfile({ buyer, onNavigate }: BuyerProfileProps) {
                     <p className="font-semibold">{buyer.capital}</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-3">
                   <Users className="h-5 w-5 text-teal-600" />
                   <div>
@@ -153,7 +175,9 @@ export function BuyerProfile({ buyer, onNavigate }: BuyerProfileProps) {
                 <div className="flex items-center space-x-3">
                   <Target className="h-5 w-5 text-teal-600" />
                   <div>
-                    <p className="text-sm text-gray-600">Business Size Preference</p>
+                    <p className="text-sm text-gray-600">
+                      Business Size Preference
+                    </p>
                     <p className="font-semibold">{buyer.preferredSize}</p>
                   </div>
                 </div>
@@ -162,7 +186,9 @@ export function BuyerProfile({ buyer, onNavigate }: BuyerProfileProps) {
 
             {/* Action Card */}
             <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Take Action</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                Take Action
+              </h3>
               <div className="space-y-3">
                 <button className="w-full bg-teal-600 text-white py-3 rounded-lg font-semibold hover:bg-teal-700 transition-colors">
                   Connect with Buyer
@@ -170,8 +196,8 @@ export function BuyerProfile({ buyer, onNavigate }: BuyerProfileProps) {
                 <button className="w-full border border-gray-300 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
                   Save for Later
                 </button>
-                <button 
-                  onClick={() => onNavigate('acquisition')}
+                <button
+                  onClick={() => onNavigate("acquisition")}
                   className="w-full bg-orange-600 text-white py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors"
                 >
                   Start Deal Process
@@ -181,21 +207,35 @@ export function BuyerProfile({ buyer, onNavigate }: BuyerProfileProps) {
 
             {/* Compatibility Breakdown */}
             <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Why This Match?</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                Why This Match?
+              </h3>
               <div className="space-y-4">
                 {[
-                  { label: 'Industry Alignment', score: 95, color: 'bg-green-500' },
-                  { label: 'Size Preference', score: 88, color: 'bg-teal-500' },
-                  { label: 'Geographic Fit', score: 92, color: 'bg-blue-500' },
-                  { label: 'Timeline Match', score: 90, color: 'bg-purple-500' }
+                  {
+                    label: "Industry Alignment",
+                    score: 95,
+                    color: "bg-green-500",
+                  },
+                  { label: "Size Preference", score: 88, color: "bg-teal-500" },
+                  { label: "Geographic Fit", score: 92, color: "bg-blue-500" },
+                  {
+                    label: "Timeline Match",
+                    score: 90,
+                    color: "bg-purple-500",
+                  },
                 ].map((item, index) => (
                   <div key={index}>
                     <div className="flex justify-between items-center mb-1">
-                      <span className="text-sm font-medium text-gray-700">{item.label}</span>
-                      <span className="text-sm font-semibold text-gray-900">{item.score}%</span>
+                      <span className="text-sm font-medium text-gray-700">
+                        {item.label}
+                      </span>
+                      <span className="text-sm font-semibold text-gray-900">
+                        {item.score}%
+                      </span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div 
+                      <div
                         className={`h-2 rounded-full ${item.color}`}
                         style={{ width: `${item.score}%` }}
                       ></div>

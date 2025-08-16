@@ -1,7 +1,18 @@
-import React, { useState } from 'react';
-import { Heart, X, MapPin, DollarSign, Users, Calendar, ChevronRight, Filter } from 'lucide-react';
-import { useAuth } from '../contexts/AuthContext';
-import { Navigation } from './Navigation';
+import React, { useState } from "react";
+import {
+  Heart,
+  X,
+  MapPin,
+  DollarSign,
+  Users,
+  Calendar,
+  ChevronRight,
+  Filter,
+} from "lucide-react";
+import { useAuth } from "../contexts/AuthContext";
+import { Navigation } from "./Navigation";
+import { buyers } from "../data/buyers";
+import { businesses } from "../data/businesses";
 
 interface MatchingInterfaceProps {
   onNavigate: (route: string, data?: any) => void;
@@ -10,94 +21,7 @@ interface MatchingInterfaceProps {
 export function MatchingInterface({ onNavigate }: MatchingInterfaceProps) {
   const { user } = useAuth();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const isSeller = user?.role === 'seller';
-
-  // Sample data - in real app this would come from API
-  const buyers = [
-    {
-      id: 1,
-      name: 'TechCorp Ventures',
-      type: 'Private Equity',
-      location: 'San Francisco, CA',
-      capital: '$50M+',
-      experience: '10+ acquisitions',
-      targetIndustries: ['Technology', 'SaaS', 'E-commerce'],
-      preferredSize: '$5M-$20M revenue',
-      timeline: '3-6 months',
-      avatar: 'TC',
-      description: 'Focused on growth-stage tech companies with strong unit economics and recurring revenue models.',
-      recentDeals: ['CloudTech Solutions ($12M)', 'DataFlow Inc ($8M)'],
-      investmentFocus: 'B2B SaaS with $5M+ ARR',
-      compatibility: 92
-    },
-    {
-      id: 2,
-      name: 'Regional Growth Partners',
-      type: 'Investment Group',
-      location: 'Austin, TX',
-      capital: '$10M-$25M',
-      experience: '5-10 acquisitions',
-      targetIndustries: ['Manufacturing', 'Healthcare', 'Services'],
-      preferredSize: '$2M-$10M revenue',
-      timeline: '6-12 months',
-      avatar: 'RG',
-      description: 'Regional investors focused on profitable, established businesses with growth potential.',
-      recentDeals: ['MedSupply Co ($6M)', 'Austin Manufacturing ($4M)'],
-      investmentFocus: 'Profitable businesses with local presence',
-      compatibility: 85
-    },
-    {
-      id: 3,
-      name: 'Sarah Chen',
-      type: 'Individual Investor',
-      location: 'Seattle, WA',
-      capital: '$2M-$5M',
-      experience: 'First-time buyer',
-      targetIndustries: ['E-commerce', 'Retail', 'Consumer Goods'],
-      preferredSize: '$1M-$3M revenue',
-      timeline: 'Ready to close ASAP',
-      avatar: 'SC',
-      description: 'Former tech executive looking to acquire and operate a consumer-focused business.',
-      recentDeals: [],
-      investmentFocus: 'Owner-operator opportunities',
-      compatibility: 78
-    }
-  ];
-
-  const businesses = [
-    {
-      id: 1,
-      name: 'CloudSync Solutions',
-      industry: 'Technology',
-      location: 'Denver, CO',
-      revenue: '$3.2M ARR',
-      employees: '12',
-      yearFounded: '2019',
-      askingPrice: '$12M',
-      reason: 'Retirement',
-      avatar: 'CS',
-      description: 'B2B SaaS platform for file synchronization with 200+ enterprise clients.',
-      highlights: ['98% customer retention', 'Growing 40% YoY', 'Profitable for 2 years'],
-      ownerInvolvement: 'Strategic oversight preferred',
-      compatibility: 94
-    },
-    {
-      id: 2,
-      name: 'Artisan Coffee Co.',
-      industry: 'Food & Beverage',
-      location: 'Portland, OR',
-      revenue: '$2.8M annually',
-      employees: '25',
-      yearFounded: '2015',
-      askingPrice: '$4.5M',
-      reason: 'New opportunities',
-      avatar: 'AC',
-      description: 'Premium coffee roaster with 3 retail locations and growing e-commerce business.',
-      highlights: ['Strong local brand', 'E-commerce growing 60% YoY', 'Experienced team'],
-      ownerInvolvement: 'Flexible transition',
-      compatibility: 87
-    }
-  ];
+  const isSeller = user?.role === "seller";
 
   const currentProfiles = isSeller ? buyers : businesses;
   const currentProfile = currentProfiles[currentIndex];
@@ -121,7 +45,7 @@ export function MatchingInterface({ onNavigate }: MatchingInterfaceProps) {
 
   const handleViewProfile = () => {
     if (isSeller) {
-      onNavigate('buyer-profile', { buyer: currentProfile });
+      onNavigate("buyer-profile", { buyer: currentProfile });
     } else {
       // Navigate to business profile
     }
@@ -130,18 +54,17 @@ export function MatchingInterface({ onNavigate }: MatchingInterfaceProps) {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation onNavigate={onNavigate} />
-      
+
       <div className="max-w-4xl mx-auto px-4 py-6">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            {isSeller ? 'Discover Buyers' : 'Discover Businesses'}
+            {isSeller ? "Discover Buyers" : "Discover Businesses"}
           </h1>
           <p className="text-gray-600">
-            {isSeller 
-              ? 'Swipe through qualified buyers interested in businesses like yours'
-              : 'Browse businesses that match your investment criteria'
-            }
+            {isSeller
+              ? "Swipe through qualified buyers interested in businesses like yours"
+              : "Browse businesses that match your investment criteria"}
           </p>
         </div>
 
@@ -150,7 +73,7 @@ export function MatchingInterface({ onNavigate }: MatchingInterfaceProps) {
           {/* Card Stack Background */}
           <div className="absolute inset-0 transform rotate-1 bg-white rounded-2xl shadow-sm opacity-30"></div>
           <div className="absolute inset-0 transform -rotate-1 bg-white rounded-2xl shadow-sm opacity-60"></div>
-          
+
           {/* Main Card */}
           <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden">
             {/* Compatibility Badge */}
@@ -195,7 +118,7 @@ export function MatchingInterface({ onNavigate }: MatchingInterfaceProps) {
                   <div className="flex items-center space-x-2 text-gray-600 mb-1">
                     <DollarSign className="h-4 w-4" />
                     <span className="text-sm">
-                      {isSeller ? 'Available Capital' : 'Revenue'}
+                      {isSeller ? "Available Capital" : "Revenue"}
                     </span>
                   </div>
                   <p className="font-semibold">
@@ -207,11 +130,13 @@ export function MatchingInterface({ onNavigate }: MatchingInterfaceProps) {
                   <div className="flex items-center space-x-2 text-gray-600 mb-1">
                     <Users className="h-4 w-4" />
                     <span className="text-sm">
-                      {isSeller ? 'Experience' : 'Employees'}
+                      {isSeller ? "Experience" : "Employees"}
                     </span>
                   </div>
                   <p className="font-semibold">
-                    {isSeller ? currentProfile.experience : currentProfile.employees}
+                    {isSeller
+                      ? currentProfile.experience
+                      : currentProfile.employees}
                   </p>
                 </div>
 
@@ -221,19 +146,26 @@ export function MatchingInterface({ onNavigate }: MatchingInterfaceProps) {
                     <span className="text-sm">Timeline</span>
                   </div>
                   <p className="font-semibold">
-                    {isSeller ? currentProfile.timeline : `Est. ${currentProfile.yearFounded}`}
+                    {isSeller
+                      ? currentProfile.timeline
+                      : `Est. ${currentProfile.yearFounded}`}
                   </p>
                 </div>
               </div>
 
               {/* Highlights */}
-              {(isSeller ? currentProfile.targetIndustries : currentProfile.highlights) && (
+              {(isSeller
+                ? currentProfile.targetIndustries
+                : currentProfile.highlights) && (
                 <div className="mb-6">
                   <h3 className="font-semibold text-gray-900 mb-3">
-                    {isSeller ? 'Target Industries' : 'Key Highlights'}
+                    {isSeller ? "Target Industries" : "Key Highlights"}
                   </h3>
                   <div className="flex flex-wrap gap-2">
-                    {(isSeller ? currentProfile.targetIndustries : currentProfile.highlights).map((item, index) => (
+                    {(isSeller
+                      ? currentProfile.targetIndustries
+                      : currentProfile.highlights
+                    ).map((item, index) => (
                       <span
                         key={index}
                         className="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm"
@@ -249,19 +181,25 @@ export function MatchingInterface({ onNavigate }: MatchingInterfaceProps) {
               <div className="grid grid-cols-1 gap-4 mb-6">
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">
-                    {isSeller ? 'Investment Focus' : 'Asking Price'}
+                    {isSeller ? "Investment Focus" : "Asking Price"}
                   </h4>
                   <p className="text-gray-700">
-                    {isSeller ? currentProfile.investmentFocus : currentProfile.askingPrice}
+                    {isSeller
+                      ? currentProfile.investmentFocus
+                      : currentProfile.askingPrice}
                   </p>
                 </div>
-                
+
                 {isSeller && currentProfile.recentDeals.length > 0 && (
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Recent Deals</h4>
+                    <h4 className="font-semibold text-gray-900 mb-2">
+                      Recent Deals
+                    </h4>
                     <div className="space-y-1">
                       {currentProfile.recentDeals.map((deal, index) => (
-                        <p key={index} className="text-gray-700 text-sm">{deal}</p>
+                        <p key={index} className="text-gray-700 text-sm">
+                          {deal}
+                        </p>
                       ))}
                     </div>
                   </div>
@@ -269,13 +207,15 @@ export function MatchingInterface({ onNavigate }: MatchingInterfaceProps) {
               </div>
 
               {/* View Full Profile Button */}
-              <button
-                onClick={handleViewProfile}
-                className="w-full bg-gray-100 text-gray-700 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors flex items-center justify-center group"
-              >
-                View Full Profile
-                <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              {isSeller && (
+                <button
+                  onClick={handleViewProfile}
+                  className="w-full bg-gray-100 text-gray-700 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors flex items-center justify-center group"
+                >
+                  View Full Profile
+                  <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              )}
             </div>
 
             {/* Action Buttons */}
