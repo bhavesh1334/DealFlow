@@ -1,5 +1,7 @@
 # DealFlow
 
+🌐 [Live Project URL](https://deal-flow.netlify.app/)
+
 DealFlow is a modern digital platform designed to **connect business buyers and sellers** with an intuitive, approachable design.  
 Unlike traditional acquisition platforms, DealFlow flips the model by enabling **seller-initiated matching**, streamlining onboarding, and leveraging **AI-powered workflows** to maximize deal success.
 
@@ -65,7 +67,7 @@ Unlike traditional acquisition platforms, DealFlow flips the model by enabling *
 Clone the repo and install dependencies:
 
 ```bash
-git clone https://github.com/bhavesh1334/DealFlow.git
+git clone https://github.com/your-username/dealflow.git
 cd dealflow
 npm install
 npm run dev
