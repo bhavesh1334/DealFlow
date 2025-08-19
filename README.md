@@ -68,7 +68,7 @@ Unlike traditional acquisition platforms, DealFlow flips the model by enabling *
 Clone the repo and install dependencies:
 
 ```bash
-git clone https://github.com/your-username/dealflow.git
+git clone https://github.com/bhavesh1334/Dealflow.git
 cd dealflow
 npm install
 npm run dev
