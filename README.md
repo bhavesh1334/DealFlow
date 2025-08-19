@@ -1,6 +1,7 @@
 # DealFlow
 
-🌐 [Live Project URL](https://deal-flow.netlify.app/)
+🌐 <a href="https://deal-flow.netlify.app/" target="_blank">Live Project URL</a>
+
 
 DealFlow is a modern digital platform designed to **connect business buyers and sellers** with an intuitive, approachable design.  
 Unlike traditional acquisition platforms, DealFlow flips the model by enabling **seller-initiated matching**, streamlining onboarding, and leveraging **AI-powered workflows** to maximize deal success.
